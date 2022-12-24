@@ -70,7 +70,8 @@ with open('Task05_2.txt') as rt:
 if len(r1) == len(r2):
     with open('Task05_3.txt', 'a') as wrtt:
         for i in range(len(r1)):
-            s = r1[i].replace('= 0', ' + ') + r2[i]
+            s = r1[i].replace('= 0', ' + ') 
+            s = s.replace('\n','') + r2[i]
             wrtt.write(s)
 else:
     print('Файл заполнить невозможно')
