@@ -30,12 +30,13 @@ def creat_str(lst):
         if i != n - 1 and i != n-2 and lst[i] != 0:
             wrt += f'{lst[i]}x^{n-i-1}'
             wrt += ' + '
-        if i == n - 2 and lst[i] != 0:
+        elif i == n - 2 and lst[i] != 0:
             wrt += f'{lst[i]}x'
-            wrt += ' + '
-        if i == n - 1 and lst[i] != 0:
+            if lst[i+1] != 0:
+                wrt += ' + '
+        elif i == n - 1 and lst[i] != 0:
             wrt += f'{lst[i]} = 0'
-        if i == n - 1 and lst[i] == 0:
+        elif i == n - 1 and lst[i] == 0:
             wrt += ' = 0'
     return wrt
 k = randint(2,10)
