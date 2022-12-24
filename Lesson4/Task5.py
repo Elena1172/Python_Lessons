@@ -39,12 +39,13 @@ def creat_text(lst):
         if i != n - 1 and i != n - 2 and lst[i] != 0:
             wr += f'{lst[i]}x^{n-i-1}'
             wr += ' + '
-        if i == n - 2 and lst[i] != 0:
+        elif i == n - 2 and lst[i] != 0:
             wr += f'{lst[i]}x'
-            wr += ' + '
-        if i == n - 1 and lst[i] != 0:
+            if lst[i + 1] != 0:
+                wr += ' + '
+        elif i == n - 1 and lst[i] != 0:
             wr += f'{lst[i]} = 0'
-        if i == n - 1 and lst[i] == 0:
+        elif i == n - 1 and lst[i] == 0:
             wr += ' = 0'
     return wr
 
