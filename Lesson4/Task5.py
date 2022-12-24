@@ -35,18 +35,21 @@ def creat_list(k):
 def creat_text(lst):
     wr = ''
     n = len(lst)
-    for i in range(n):
-        if i != n - 1 and i != n - 2 and lst[i] != 0:
-            wr += f'{lst[i]}x^{n-i-1}'
-            wr += ' + '
-        elif i == n - 2 and lst[i] != 0:
-            wr += f'{lst[i]}x'
-            if lst[i + 1] != 0:
+    if n < 2:
+        wr = 'x = 0'
+    else:
+        for i in range(n):
+            if i != n - 1 and i != n - 2 and lst[i] != 0:
+                wr += f'{lst[i]}x^{n-i-1}'
                 wr += ' + '
-        elif i == n - 1 and lst[i] != 0:
-            wr += f'{lst[i]} = 0'
-        elif i == n - 1 and lst[i] == 0:
-            wr += ' = 0'
+            elif i == n - 2 and lst[i] != 0:
+                wr += f'{lst[i]}x'
+                if lst[i + 1] != 0:
+                    wr += ' + '
+            elif i == n - 1 and lst[i] != 0:
+                wr += f'{lst[i]} = 0'
+            elif i == n - 1 and lst[i] == 0:
+                wr += ' = 0'
     return wr
 
 
@@ -61,8 +64,13 @@ for i in range(n):
     t = creat_text(s)
     write_file2(t + '\n')
 with open('Task05_1.txt') as rt:
-    r1 = rt.read()
+    r1 = rt.readlines()
 with open('Task05_2.txt') as rt:
-    r2 = rt.read()
-print(r1)
-print(r2)
+    r2 = rt.readlines()
+if len(r1) == len(r2):
+    with open('Task05_3.txt', 'a') as wrtt:
+        for i in range(len(r1)):
+            s = r1[i].replace('= 0', ' + ') + r2[i]
+            wrtt.write(s)
+else:
+    print('Файл заполнить невозможно')
