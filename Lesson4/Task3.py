@@ -3,11 +3,10 @@
 from random import randint
 
 
-def Creat_list():
+def Creat_list(n):
     lst = []
-    n = 7
     for i in range(n):
-        x = randint(9,15)
+        x = randint(9,9+n-1)
         lst.append(x)
     return lst
 def unicum_val(l):
@@ -16,8 +15,11 @@ def unicum_val(l):
         if not l.count(l[i]) > 1:
             new_list.append(l[i])
     return new_list
-lst = Creat_list()
-print(lst)
-lst1 = unicum_val(lst)
-print(lst1)
-
+n = int(input('Введите количество чисел в последовательности: '))
+if n > 0:
+    lst = Creat_list(n)
+    print(lst)
+    lst1 = unicum_val(lst)
+    print(lst1)
+else:
+    print('Неправильный ввод данных')
