@@ -9,7 +9,6 @@
 t = ["Иван", "Мария", "Петр", "Илья", "Марина", "Петр", "Алина", "Бибочка"]
 def creat_dict(lst):
     lst1 = list(set([i[0] for i in lst]))
-    lst2 = []
     d = {}
     k = lambda x,y:[i for i in y if i[0] == x]
     for el in lst1:
