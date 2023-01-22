@@ -1,3 +1,4 @@
+from logg import logging
 def get_numder():
     while True:
         try:
