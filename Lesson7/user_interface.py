@@ -33,11 +33,11 @@ def menu_rat():
                 logging.info(f' {n1} div/ {n2} = {c.div01(n1,n2)}')
                 return print(f'{n1} разделить на {n2} = {c.div01(n1,n2)}')
             case '5':
-                n2 = e.get_numder()
+                n2 = e.get_numder1()
                 logging.info(f' {n1} div// {n2} = {c.div02(n1,n2)}')
                 return print(f'{n1} деление целочисленное на {n2} = {c.div02(n1,n2)}')
             case '6':
-                n2 = e.get_numder()
+                n2 = e.get_numder1()
                 logging.info(f' {n1} div% {n2} = {c.div03(n1,n2)}')
                 return print(f'{n1} деление без остатка на {n2} = {c.div03(n1,n2)}')
             case '7':
