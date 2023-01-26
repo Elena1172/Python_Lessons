@@ -194,3 +194,4 @@ def upd_data2():
                 case _:
                     print('Ошибка ввода')
                     break
+
