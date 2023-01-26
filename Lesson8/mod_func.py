@@ -23,10 +23,6 @@ def show_table2():
     print ('{0:3} {1:12} {2:10} {3:16} {4:10}'.format ('ID','фамилия','имя','номер телефона','e_maile'))
     for a,j,d,f,g in r:
         print ('{0:3} {1:12} {2:10} {3:16} {4:10}'.format (a,j,d,f,g))       
-
-show_table()
-show_table1()
-show_table2()
 def add_data():
     n = input('ID ')
     n1 = input('Дата заказа ')
@@ -37,7 +33,6 @@ def add_data():
     with s.connect('base.db') as bd:
         cur = bd.cursor()
         cur.execute('INSERT INTO заказы VALUES(?,?,?,?,?,?)',(n,n1,n2,n3,n4,n5))
-    
 def add_data1():
     n = input('ID ')
     n1 = input('Фамилия ')
@@ -56,10 +51,18 @@ def add_data2():
     with s.connect('base.db') as bd:
         cur = bd.cursor()
         cur.execute('INSERT INTO клиенты VALUES(?,?,?,?,?)',(n,n1,n2,n3,n4))
-add_data()
-add_data1()
-add_data2()
-show_table()
-show_table1()
-show_table2()
-    
+def del_data():
+    n1 = int(input('Введите ID для удаления '))
+    with s.connect('base.db') as bd:
+        cur = bd.cursor()
+        cur.execute('DELETE FROM заказы WHERE ID == ?',(n1,))
+def del_data1():
+    n1 = int(input('Введите ID для удаления '))
+    with s.connect('base.db') as bd:
+        cur = bd.cursor()
+        cur.execute('DELETE FROM сотрудники WHERE ID == ?',(n1,))
+def del_data2():
+    n1 = int(input('Введите ID для удаления '))
+    with s.connect('base.db') as bd:
+        cur = bd.cursor()
+        cur.execute('DELETE FROM клиенты WHERE ID == ?',(n1,))
